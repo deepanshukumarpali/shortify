@@ -29,13 +29,13 @@
 </head>
 <body>
     
-    <div class="limiter">
-        <div class="container-login100">
-            <div class="wrap-login100 p-t-50 p-b-90">
+    <div class="limiter" style="width: 100%;">
+        <div class="container-login100" style="width: 100%;">
+            <div class="wrap-login100 p-t-50 p-b-90" style="width: 60%;">
                 <form class="login100-form validate-form flex-sb flex-w" id = "form" method="POST" action="" onsubmit="return validateCustomCode()">
                     <span class="login100-form-title p-b-51">
                         SHORTIFY
-                    </span>
+                    </span><br><br>
 
                 
 
@@ -57,7 +57,7 @@
                             <span class="focus-input100"></span>
                         </div>
 
-                    {% else %}
+                    {% else %} 
 
                         <div class="wrap-input100 validate-input m-b-16">
                             <input class="input100" type = "text" placeholder="Long URL" name="longUrl" id = "longUrl" required/>
@@ -65,13 +65,13 @@
                         </div>
 
                         <div class="wrap-input100 validate-input m-b-16">
-                            <input class="input100" type = "text" placeholder="Enter Custom code, max 7 chars (OPTIONAL)" name="customCode" id="customCode" maxlength="20"/>
+                            <input class="input100" type = "text" placeholder="Custom URL Name" name="customCode" id="customCode" maxlength="20"/>
                             <span class="focus-input100"></span>
                         </div>
 
                         <div class="container-login100-form-btn m-t-17">
                             <button class="login100-form-btn" type="submit">
-                                Shortify
+                                Shortify Me
                             </button>
                         </div>
 

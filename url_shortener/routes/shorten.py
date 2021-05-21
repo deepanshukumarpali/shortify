@@ -13,20 +13,18 @@ async def shorten_url(url : UrlSchema):
     shortme(url)
     
 def shortme(url):
+    shortCode = url["customCode"]
+    urlExists = Url.objects(shortCode = shortCode)
 
-    try:
-        shortCode = url["customCode"]
+    while(urlExists):
+        shortCode = shortuuid.ShortUUID().random(length = 7)
         urlExists = Url.objects(shortCode = shortCode)
-
-        while(urlExists):
-            shortCode = shortuuid.ShortUUID().random(length = 7)
-            urlExists = Url.objects(shortCode = shortCode)
-        
-        shortUrl = os.path.join(config("HOST"), shortCode)
     
+    shortUrl = os.path.join(config("HOST"), shortCode)
+    
+    try:
         url = Url( longUrl = url["longUrl"], shortCode = shortCode, shortUrl = shortUrl )
         url.save()
-
         return {
             "message" : "Successfully shortened URL.",
             "shortUrl" : shortUrl,
@@ -34,4 +32,5 @@ def shortme(url):
         }
     
     except Exception: 
+        
         raise HTTPException(status_code = 500, detail = "Unknown Error")

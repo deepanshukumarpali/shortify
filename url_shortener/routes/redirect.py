@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, Header
+from fastapi import APIRouter, HTTPException, Header
 from starlette.responses import RedirectResponse
 from url_shortener.models import Url
 from decouple import config

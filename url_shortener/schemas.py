@@ -1,6 +1,5 @@
 from typing import Optional
 from pydantic import BaseModel, constr
-import validators
 
 class UrlSchema(BaseModel):
     longUrl : str 
