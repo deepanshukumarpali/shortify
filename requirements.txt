@@ -1,5 +1,4 @@
 fastapi==0.63.0
-bson==0.5.10
 click==7.1.2
 decorator==4.4.2
 dnspython==2.1.0

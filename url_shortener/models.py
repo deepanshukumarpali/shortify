@@ -1,10 +1,8 @@
-from mongoengine import Document, StringField, DateTimeField, ObjectIdField
-from bson import ObjectId 
+from mongoengine import Document, StringField, DateTimeField
 from datetime import datetime 
 
 
 class Url(Document): 
-    id = ObjectId()
     longUrl = StringField(required = True)
     shortCode = StringField(required = True, unique = True)
     shortUrl = StringField(required = True)
