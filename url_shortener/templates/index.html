@@ -1,15 +1,90 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <title>shortify</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>URL Shortener</title>
-    <style></style>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+    <link rel="icon" type="image/png" href="{{ url_for('static', path='/images/icons/favicon.ico') }}"/>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/util.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/css/main.css') }}">
+
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/vendor/bootstrap/css/bootstrap.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/fonts/font-awesome-4.7.0/css/font-awesome.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/fonts/Linearicons-Free-v1.0.0/icon-font.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/vendor/animate/animate.css') }}">
+<!--===============================================================================================-->	
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/vendor/css-hamburgers/hamburgers.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/vendor/animsition/css/animsition.min.css') }}">
+<!--===============================================================================================-->
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/vendor/select2/select2.min.css') }}">
+<!--===============================================================================================-->	
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/vendor/daterangepicker/daterangepicker.css') }}">
+<!--===============================================================================================-->
 </head>
 <body>
-        <div >
-            <h1 >URL Shortener By Deepanshu</h1>
+    
+    <div class="limiter">
+        <div class="container-login100">
+            <div class="wrap-login100 p-t-50 p-b-90">
+                <form class="login100-form validate-form flex-sb flex-w" id = "form" method="POST" action="" onsubmit="return validateCustomCode()">
+                    <span class="login100-form-title p-b-51">
+                        SHORTIFY
+                    </span>
+
+                
+
+
+                    {% if shortUrl %}
+
+                        <div class="wrap-input100 validate-input m-b-16" >
+                            <input class="input100" type = "text" name="longUrl" id = "longUrl"  value=" {{longUrl}} " readonly/>
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" >
+                            <input class="input100" type = "text" name="customCode" id="customCode" maxlength="7" value=" {{customCode}} " readonly/>
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16" >
+                            <input class="input100" type = "text" name="shortUrl" id = "shortUrl" value=" {{shortUrl}} " readonly/>
+                            <span class="focus-input100"></span>
+                        </div>
+
+                    {% else %}
+
+                        <div class="wrap-input100 validate-input m-b-16">
+                            <input class="input100" type = "text" placeholder="Long URL" name="longUrl" id = "longUrl" required/>
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="wrap-input100 validate-input m-b-16">
+                            <input class="input100" type = "text" placeholder="Enter Custom code, max 7 chars (OPTIONAL)" name="customCode" id="customCode" maxlength="20"/>
+                            <span class="focus-input100"></span>
+                        </div>
+
+                        <div class="container-login100-form-btn m-t-17">
+                            <button class="login100-form-btn" type="submit">
+                                Shortify
+                            </button>
+                        </div>
+
+                    {% endif %}
+                
+
+                </form>
+            </div>
         </div>
-    <script></script>
+    </div>
+    
+
+    <script src="{{ url_for('static', path='/js/validate.js') }}"></script>
+
 </body>
 </html>
