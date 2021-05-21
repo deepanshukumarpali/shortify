@@ -29,7 +29,6 @@
 </head>
 <body>
     
-    <div class="limiter" style="width: 100%;">
         <div class="container-login100" style="width: 100%;">
             <div class="wrap-login100 p-t-50 p-b-90" style="width: 60%;">
                 <form class="login100-form validate-form flex-sb flex-w" id = "form" method="POST" action="" onsubmit="return validateCustomCode()">
@@ -76,12 +75,18 @@
                         </div>
 
                     {% endif %}
-                
-
-                </form>
+                </form><br><br>
+                <div style="text-align: center;">
+                    <span class="login100-form-title p-b-51">
+                        <!-- <span style="font-size: 8px; font-family:'Times New Roman', Times, serif;color:#00004d;">by </span> -->
+                    <a href="https://www.linkedin.com/in/deepanshu-pali"  style="font-size: 18px;color:#00004d;"> Deepanshu </a><span  style="font-size: 20px; font-weight: bold;">|</span>
+                    <a href="https://github.com/deepanshukumarpali/shortify" style="font-size: 18px;color:#00004d;" >GitHub</a>
+                    </span>
+                    
+                </div>
             </div>
         </div>
-    </div>
+
     
 
     <script src="{{ url_for('static', path='/js/validate.js') }}"></script>
