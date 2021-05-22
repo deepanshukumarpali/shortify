@@ -39,13 +39,12 @@ async def shortMe(request: Request, longUrl: str = Form(...), customCode: str = 
             'customCode' : customCode,
             'shortUrl' : e.detail
         }
-    finally:
-        return templates.TemplateResponse("index.html", {
-            "request" : request,
-            "longUrl" : longUrl,
-            "customCode" : customCode,
-            "shortUrl" : response['shortUrl']
-        })
+    return templates.TemplateResponse("index.html", {
+        "request" : request,
+        "longUrl" : longUrl,
+        "customCode" : customCode,
+        "shortUrl" : response['shortUrl']
+    })
 
 
 @app.on_event("startup")
