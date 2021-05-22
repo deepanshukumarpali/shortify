@@ -57,11 +57,8 @@ async def create_db_client():
 
 
 @app.on_event("shutdown")
-async def shutdown_db_client():
-    try:
-        disconnect(host = MONGO_URI)
-    except Exception as e:
-        raise HTTPException(status_code= 404, detail = "Database Connection Error!")
+async def shutdown_db_client(): 
+    pass
     
     
 if __name__ == "__main__":
